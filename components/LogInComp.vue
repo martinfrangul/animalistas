@@ -9,6 +9,7 @@
 <script>
 
 import axios from 'axios'
+import { toRef } from 'vue'
 
 export default {
     name: 'LogInComp',
@@ -16,7 +17,7 @@ export default {
     // initialize Google Sign in  
     google.accounts.id.initialize({
         client_id: '996838561351-1jq7n8tibe738b83rk6r9g6nto8st58u.apps.googleusercontent.com',
-        callback: this.handleCredentialResponse, //method to run after user clicks the Google sign in button
+        callback: this.handleCredentialResponse,  //method to run after user clicks the Google sign in button
         context: 'signin'
       })
     
@@ -41,13 +42,20 @@ export default {
         const response = await axios.post("https://animalistas.herokuapp.com/googlelogin", {
           idToken
         }, {withCredentials:true })
-        console.log(response);
+
+        //Manejo de errores
+
+        if (response.status == 200 && !this.$store.state.userObject)
+          this.$store.dispatch('createUserObject', response.data)
+          this.$router.push('/dashboard')
       },
       // the token can be accessed as: response.credential
 
       handleCredentialResponse(response) {
         this.googleAuth(response.credential)
-    }
+      },
+      
+    
   }
     
 }
