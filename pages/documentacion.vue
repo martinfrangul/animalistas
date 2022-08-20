@@ -1,6 +1,7 @@
 <template>
     <div>
-        
+        <h1>Documentación</h1>
+        <nuxt-link to="/dashboard">VOLVER</nuxt-link>
     </div>
 </template>
 
