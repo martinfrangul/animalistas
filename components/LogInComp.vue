@@ -43,11 +43,13 @@ export default {
           idToken
         }, {withCredentials:true })
 
+
         //Manejo de errores
 
         if (response.status == 200 || 201 && !this.$store.state.userObject)
           this.$store.dispatch('createUserObject', response.data)
           this.$router.push('/dashboard')
+
           
       },
       // the token can be accessed as: response.credential

@@ -7,7 +7,10 @@
 
 <script>
     export default {
-        
+        mounted() {
+          this.$store.dispatch('getUserObj')
+
+        }
     }
 </script>
 

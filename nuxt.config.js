@@ -1,4 +1,8 @@
 export default {
+
+  router: {
+    middleware: 'guard'
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'animalistas',
@@ -18,6 +22,7 @@ export default {
       {
         src: 'https://accounts.google.com/gsi/client',
       },
+      
     ],
   },
 
