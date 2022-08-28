@@ -39,15 +39,14 @@ export default {
     
       // call your backend API here
       async googleAuth(idToken)  {
-        const response = await axios.post("https://animalistas.herokuapp.com/googlelogin", {
+        const response = await axios.post("https://animalistasback.onrender.com/googlelogin", {
           idToken
         }, {withCredentials:true })
 
 
         //Manejo de errores
 
-        if (response.status == 200 || 201 && !this.$store.state.userObject)
-          this.$store.dispatch('createUserObject', response.data)
+        if (response.status == 200 || 201)
           this.$router.push('/dashboard')
 
           
