@@ -8,7 +8,6 @@
 
 <script>
 
-import axios from 'axios'
 import { toRef } from 'vue'
 
 export default {
@@ -39,7 +38,7 @@ export default {
     
       // call your backend API here
       async googleAuth(idToken)  {
-        const response = await axios.post("https://animalistasback.onrender.com/googlelogin", {
+        const response = await this.$axios.$post("https://animalistasback.onrender.com/googlelogin", {
           idToken
         }, {withCredentials:true })
 
