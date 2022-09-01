@@ -20,7 +20,7 @@
                     </div>
                 </b-button>
                     
-                <b-button class="section-container" to="/documentacion">
+                <b-button class="section-container" to="/documentacion" :disabled='isDisabled'>
                     <div class="section">
                         <h4>Documentación</h4>
                     </div>
@@ -44,6 +44,9 @@
     export default {
         mounted() {
             this.$store.dispatch('getUserObj')
+            //TODO VER POR QUÉ NO PUEDO CONSOLOGUEAR PROPIEDADES DE USEROBJ PERO SÍ A USEROBJ
+            console.log(this.$store.state.userObj.rol);
+
         },
         methods: {
             logOut() {
@@ -51,6 +54,22 @@
                 this.$router.push('/')
             }
         },
+        data() {
+            return {
+                isDisabled: false
+            }
+        },
+
+        computed: {
+            roleChecker() {
+                //AGREGAR LOS USUARIOS QUE QUIERO QUE DESABILITEN EL BOTÓN
+                //TODO VER POR QUÉ NO ME TOMA ROLE
+                if(this.$store.state.userObj.role == 'admin')
+                    this.isDisabled = true
+
+            }
+        }
+        // middleware: ['level2'],
 
     }
 </script>

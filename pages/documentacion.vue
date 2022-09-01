@@ -8,7 +8,7 @@
 <script>
     export default {
         name: 'documentacion',
-        middleware: 'guard',
+        middleware: ['level2'],
 
     }
 </script>

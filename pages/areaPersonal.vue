@@ -14,7 +14,6 @@
             return {
             }
         },
-        middleware: 'guard',
         
     }
 </script>
