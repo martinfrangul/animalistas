@@ -1,8 +1,5 @@
 export default {
 
-  router: {
-    middleware: 'guard'
-  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'animalistas',
@@ -51,5 +48,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+  
+
+  
+  
 }
