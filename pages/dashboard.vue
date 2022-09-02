@@ -1,7 +1,11 @@
 
 <template>
         <div class="container-gral">
-
+            <div class="alertCont">
+                <div class="alert">
+                    <alert ref="alerta"></alert>
+                </div>
+            </div>
             <div class="logOutCont">
                 <b-button class="logOut" @click="logOut">LOGOUT</b-button>
 
@@ -14,7 +18,7 @@
                     </div>
                 </b-button>
                     
-                <b-button class="section-container" to="/colonias">
+                <b-button class="section-container" to="/colonias" @click="$refs.alerta.showAlert()">
                     <div class="section">
                         <h4>Colonias</h4>
                     </div>
@@ -60,7 +64,7 @@
         computed: {
             roleChecker() {
                 //AGREGAR LOS USUARIOS QUE QUIERO QUE DESABILITEN EL BOTÓN
-                //TODO VER POR QUÉ NO ME TOMA ROLE
+                //TODO VOLVER A HACERLO FUNCIONAR
                 if(this.$store.state.userObj.role == 'admin')
                     this.isDisabled = true
 
