@@ -7,7 +7,11 @@
 
 <script>
     export default {
-        
+        name: 'responsablesColonias',
+        mounted() {
+            this.$store.dispatch('getUserObj')
+        },
+        middleware: ['levelMember']
     }
 </script>
 

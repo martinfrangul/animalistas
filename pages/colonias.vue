@@ -7,6 +7,12 @@
 
 <script>
     export default {
+        name: 'colonias',
+        mounted() {
+            this.$store.dispatch('getUserObj')
+        },
+        middleware: ['levelCarer']
+
     }
 </script>
 

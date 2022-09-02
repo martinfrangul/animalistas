@@ -44,9 +44,6 @@
     export default {
         mounted() {
             this.$store.dispatch('getUserObj')
-            //TODO VER POR QUÉ NO PUEDO CONSOLOGUEAR PROPIEDADES DE USEROBJ PERO SÍ A USEROBJ
-            console.log(this.$store.state.userObj.rol);
-
         },
         methods: {
             logOut() {

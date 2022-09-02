@@ -10,11 +10,14 @@
 
     export default {
         name: 'areaPersonal',
+        mounted() {
+            this.$store.dispatch('getUserObj')
+        },
         data() {
             return {
             }
         },
-        
+        middleware: ['levelUser']
     }
 </script>
 

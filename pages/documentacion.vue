@@ -8,8 +8,10 @@
 <script>
     export default {
         name: 'documentacion',
-        middleware: ['level2'],
-
+        mounted() {
+            this.$store.dispatch('getUserObj')
+        },
+        middleware: ['levelAdmin'],
     }
 </script>
 
