@@ -1,36 +1,37 @@
 
+
 <template>
         <div class="container-gral">
-            <div class="alertCont">
-                <div class="alert">
-                    <alert ref="alerta"></alert>
-                </div>
-            </div>
+
+                    <!-- <alert ref="alerta"></alert> -->
+                    <!-- PARA MOSTRAR ALERT PEGAR ESTO EN EL BOTÓN
+                        @click="$refs.alerta.showAlert()" -->
+
+
             <div class="logOutCont">
                 <b-button class="logOut" @click="logOut">LOGOUT</b-button>
-
             </div>
 
-            <div class="sections">
+            <div id="prueba" class="sections">
                 <b-button class="section-container" to="/areaPersonal">
                     <div class="section">
                         <h4>Area personal</h4>
                     </div>
                 </b-button>
                     
-                <b-button class="section-container" to="/colonias" @click="$refs.alerta.showAlert()">
+                <b-button class="section-container" v-if="isMember()" to="/colonias">
                     <div class="section">
                         <h4>Colonias</h4>
                     </div>
                 </b-button>
                     
-                <b-button class="section-container" to="/documentacion" :disabled='isDisabled'>
+                <b-button class="section-container" v-if="isAdmin()" to="/documentacion">
                     <div class="section">
                         <h4>Documentación</h4>
                     </div>
                 </b-button>
                     
-                <b-button class="section-container" to="/responsablesColonias">
+                <b-button class="section-container" v-if="isCarer()" to="/responsablesColonias">
                     <div class="section">
                         <h4>Responsables de colonias</h4>
                     </div>
@@ -44,34 +45,47 @@
 
 <script>
 
-
     export default {
-        mounted() {
+
+        beforeCreate() {
             this.$store.dispatch('getUserObj')
         },
+
+
         methods: {
             logOut() {
                 this.$store.commit('logOut')
                 this.$router.push('/')
-            }
+            },
+            isCarer() {
+                if (this.$store.state.userObj) {
+                    if (this.$store.state.userObj.role == 'carer'
+                    || this.$store.state.userObj.role == 'member'
+                    || this.$store.state.userObj.role == 'admin')
+                        return true
+                    }
+            },
+
+            isMember() {
+                if (this.$store.state.userObj) {
+                    if (this.$store.state.userObj.role == 'member'
+                    || this.$store.state.userObj.role == 'admin')
+                        return true
+                    }
+            },
+
+            isAdmin() {
+                if (this.$store.state.userObj) {
+                    if (this.$store.state.userObj.role == 'admin')
+                        return true
+                    }
+            },
         },
+
         data() {
             return {
-                isDisabled: false
             }
         },
-
-        computed: {
-            roleChecker() {
-                //AGREGAR LOS USUARIOS QUE QUIERO QUE DESABILITEN EL BOTÓN
-                //TODO VOLVER A HACERLO FUNCIONAR
-                if(this.$store.state.userObj.role == 'admin')
-                    this.isDisabled = true
-
-            }
-        }
-        // middleware: ['level2'],
-
     }
 </script>
 

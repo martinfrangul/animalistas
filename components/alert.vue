@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-alert
+    <b-alert alert
       :show="dismissCountDown"
       dismissible
       fade
@@ -38,8 +38,9 @@ export default {
 <style scoped>
 
 .alert {
+  width: 100%;
   height: fit-content;
-  width: fit-content;
+  margin-top: 1rem;
 }
 
 </style>
