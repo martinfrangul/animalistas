@@ -4,11 +4,11 @@
         <h1>Colonias</h1>
         <nuxt-link to="/dashboard">VOLVER</nuxt-link>
         <inputPanel></inputPanel>
-
-        <li v-for="colonia in this.$store.state.colonias" :key="colonia.id">
-            {{colonia}}
-        </li>
-
+        <ul v-for="colonia in this.$store.state.colonias" :key="colonia.index">
+            <h4>
+                {{colonia.name}}
+            </h4>
+        </ul>
     </div>
 </template>
 

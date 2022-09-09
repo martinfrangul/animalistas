@@ -39,9 +39,9 @@ export const actions = {
   //COLONIAS
 
   async getColonias(context) {
-    await this.$axios.get("https://animalistasback.onrender.com/colonies?text=rocha&limit=3&page=1",
+    await this.$axios.get("https://animalistasback.onrender.com/colonies",
     {withCredentials:true }).then(response => {
-      context.commit('getColonias', JSON.stringify(response.data))
+      context.commit('getColonias', response.data)
     })
   },
 

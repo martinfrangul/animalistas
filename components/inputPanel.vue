@@ -15,11 +15,11 @@
         <div class="geoCont">
             <h3>GEOLOCALIZACIÓN</h3>
             <label for="geoLat">Geolocalización: Latitud</label>
-            <input class="input" id="geoLat" v-model="geolocation.geolocationLat">
+            <input class="input" id="geoLat" v-model="geolocation.lat">
             
             
             <label for="geoLon">Geolocalización: Longitud</label>
-            <input class="input" id="geoLon" v-model="geolocation.geolocationLon">
+            <input class="input" id="geoLon" v-model="geolocation.lon">
         </div>
         
         <!-- Gatos -->
@@ -31,7 +31,7 @@
             <label for="catM">Masculino</label>
             <input class="input" id="catM" type="text" v-model="cats.catM">
             
-            <label for="catI">Irmafrodita</label>
+            <label for="catI">Indefinido</label>
             <input class="input" id="catI" type="text" v-model="cats.catI">
         </div>
 
@@ -47,11 +47,21 @@
             <label for="sterM">Masculino</label>
             <input class="input" id="sterM" type="text" v-model="ster.sterM">
             
-            <label for="sterI">Irmafrodita</label>
+            <label for="sterI">Indefinido</label>
             <input class="input" id="sterI" type="text" v-model="ster.sterI">
         </div>
 
         <b-button class="submitBTN btn-success" @click="submitForm()">ENVIAR</b-button>
+
+        {{name}}
+        {{location}}
+        {{zone}}
+        {{geolocation}}
+        {{cats}}
+        {{ster}}
+
+
+
 
     </div>
 </template>
@@ -64,8 +74,8 @@
                 location: '',
                 zone: '',
                 geolocation: {
-                    geolocationLat: '',
-                    geolocationLon: '', 
+                    lat: '',
+                    lon: '', 
                 },
                 cats: {
                     catF: '',
@@ -84,12 +94,13 @@
         methods: {
             submitForm() {
                 this.$store.dispatch('addColonia', 
-                this.name,
-                this.location,
-                this.zone,
-                this.geolocation,
-                this.cats,
-                this.ster
+                {
+                name: this.name,
+                location: this.location,
+                zone: this.zone,
+                geolocation: this.geolocation,
+                cats: this.cats,
+                sterilized: this.ster}
                 )
             }
         }
