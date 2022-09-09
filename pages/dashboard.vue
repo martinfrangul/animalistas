@@ -1,5 +1,4 @@
 
-
 <template>
         <div class="container-gral">
 
@@ -12,7 +11,7 @@
                 <b-button class="logOut" @click="logOut">LOGOUT</b-button>
             </div>
 
-            <div id="prueba" class="sections">
+            <div class="sections" v-bind:style="[this.$store.state.userObj && this.$store.state.userObj.role == 'member'? this.gridCol : this.gridRows]">
                 <b-button class="section-container" to="/areaPersonal">
                     <div class="section">
                         <h4>Area personal</h4>
@@ -44,6 +43,7 @@
 </template>
 
 <script>
+
 
     export default {
 
@@ -84,6 +84,9 @@
 
         data() {
             return {
+                gridCol: 'grid-template-columns: 1fr',
+                gridRows: 'grid-template-columns: 1fr'
+// Intentando hacer el CSS con dicionales. Seguir leyendo mañana
             }
         },
     }
@@ -102,7 +105,6 @@
 }
 
 .sections {
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -137,5 +139,7 @@
     height: fit-content;
     width: fit-content;
 }
+
+
 
 </style>

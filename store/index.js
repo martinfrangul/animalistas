@@ -1,11 +1,16 @@
 
 export const state = () => ({
   userObj: null,
+  colonias: [],
 })
   
 export const mutations = {
     setUserObj(state, data) {
       state.userObj = data
+    },
+
+    getColonias(state, data) {
+      state.colonias = data
     },
 
     logOut(state) {
@@ -31,6 +36,27 @@ export const actions = {
     return context.state.userObj
   },
 
+  //COLONIAS
+
+  async getColonias(context) {
+    await this.$axios.get("https://animalistasback.onrender.com/colonies?text=rocha&limit=3&page=1",
+    {withCredentials:true }).then(response => {
+      context.commit('getColonias', JSON.stringify(response.data))
+    })
+  },
+
+  async addColonia(name, location, zone, geolocation, cats, ster) {
+    await this.$axios.post("https://animalistasback.onrender.com/colonies",
+    {
+      name: name,
+      location: location,
+      zone: zone,
+      geolocation: geolocation,
+      cats: cats,
+      sterilized: ster
+    },
+    {withCredentials:true })
+  }
 }
 
 export const getters = {
