@@ -1,0 +1,65 @@
+$spaceamounts: (0, 2, 3, 4, 5, 7, 9, 10, 15, 17, 20, 25, 30, 35, 40, 45, 50, 55, 60, 70, 75, 100, 130);
+$sides: (top, bottom, left, right);
+
+/*
+* MARGENES Y PADDINGS EN PIXELES
+* Generará varias clases como:
+* m-t-10 -> margin-top: 10px
+* p-t-10 -> padding-top: 10px
+* m-b-10 -> margin-bottom: 10px
+* p-b-10 -> padding-bottom: 10px
+* m-r-10 -> margin-right: 10px
+* p-r-10 -> padding-right: 10px
+* m-l-10 -> margin-left: 10px
+* p-l-10 -> padding-left: 10px
+* m-all-10 -> margin: 10px
+* p-all-10 -> padding: 10px
+* m-sides-rl-10 -> margin-right:10px; margin-left:10px; 
+* p-sides-rl-10 -> padding-right:10px; padding-left:10px; 
+* m-sides-tb-10 -> margin-top:10px; margin-bottom:10px; 
+* p-sides-tb-10 -> padding-top:10px; padding-bottom:10px; 
+* y así sucesivamente.
+* La primera letra es "m" o "p" para MARGEN o PADDING
+* La segunda letra es "t", "b", "l" o "r" para TOP, BOTTOM, LEFT o RIGHT
+* La tercera letra es el número de espacios en píxeles.
+*/
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+
+    .m-all-#{$space} {
+      margin: #{$space}px !important;
+    }
+
+    .p-all-#{$space} {
+      padding: #{$space}px !important;
+    }
+
+    .m-sides-rl-#{$space} {
+      margin-right: #{$space}px !important;
+      margin-left: #{$space}px !important;
+    }
+
+    .m-sides-tb-#{$space} {
+      margin-top: #{$space}px !important;
+      margin-bottom: #{$space}px !important;
+    }
+
+    .p-sides-tb-#{$space} {
+      padding-top: #{$space}px !important;
+      padding-bottom: #{$space}px !important;
+    }
+
+    .p-sides-rl-#{$space} {
+      padding-right: #{$space}px !important;
+      padding-left: #{$space}px !important;
+    }
+  }
+}

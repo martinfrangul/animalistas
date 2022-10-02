@@ -1,0 +1,38 @@
+@mixin box($bgcolor, $bcolor) {
+  @extend %shadow;
+  border-radius: 10px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background-color: $bgcolor;
+  border: solid 1px $bcolor;
+}
+
+.box-primary {
+  @include box(var(--primary-transparency-90), var(--primary));
+}
+
+.box-primary-contrast {
+  @include box(var(--primary-contrast-transparency-90), var(--primary-contrast));
+}
+
+.box-secondary {
+  @include box(var(--secondary-transparency-90), var(--secondary));
+}
+
+.box-secondary-contrast {
+  @include box(var(--secondary-contrast-transparency-70), var(--secondary-contrast-transparency-90));
+}
+
+.box-tertiary {
+  @include box(var(--tertiary-transparency-70), var(--tertiary-transparency-90));
+}
+
+.box-tertiary-contrast {
+  @include box(var(--tertiary-contrast-transparency-90), var(--tertiary-contrast));
+}
+
+.box-white {
+  @include box(var(--white), var(--white));
+}

@@ -1,0 +1,53 @@
+@use '../utils/mixins';
+@use '../utils/helpers';
+
+body,
+.container {
+  max-width: 1200px;
+  display: block;
+  margin: auto;
+
+  @include mixins.media('xl') {
+    max-width: calc(100% - 60px) !important;
+  }
+
+  @include mixins.media('md') {
+    max-width: calc(100% - 48px) !important;
+  }
+
+  @include mixins.media('sm') {
+    max-width: calc(100% - 30px) !important;
+  }
+}
+
+body {
+  background-image: url('../assets/images/pattern-gray.png');
+
+}
+
+.general-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+
+  &__page {
+    padding-top: 130px;
+  }
+
+  &--center {
+    justify-items: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  &--white {
+    @extend %shadow;
+    background-color: var(--white);
+    justify-items: left;
+    align-items: flex-start;
+    height: fit-content;
+    padding: 40px;
+  }
+}

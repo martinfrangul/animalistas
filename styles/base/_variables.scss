@@ -1,0 +1,33 @@
+:root {
+  --white: #fff;
+  --light: #FCF8E8;
+  --dark: #333;
+  --gray-dark: #444;
+  --gray: #999;
+
+  --primary: #A7D2CB;
+  --primary-contrast: #C98474;
+  --secondary: #F2D388;
+  --secondary-contrast: #874C62;
+  --tertiary: #18978F;
+  --tertiary-contrast: #E9DAC1;
+
+  --primary-transparency-90: rgba(167, 210, 203, 0.9);
+  --primary-contrast-transparency-90: rgba(201, 132, 116, 0.9);
+  --secondary-transparency-90: rgba(242, 211, 136, 0.9);
+  --secondary-contrast-transparency-90: rgba(135, 76, 98, 0.9);
+  --tertiary-transparency-90: rgba(24, 151, 143, 0.9);
+  --tertiary-contrast-transparency-90: rgba(233, 218, 193, 0.9);
+
+  --primary-transparency-70: rgba(167, 210, 203, 0.7);
+  --primary-contrast-transparency-70: rgba(201, 132, 116, 0.7);
+  --secondary-transparency-70: rgba(242, 211, 136, 0.7);
+  --secondary-contrast-transparency-70: rgba(135, 76, 98, 0.7);
+  --tertiary-transparency-70: rgba(24, 151, 143, 0.7);
+  --tertiary-contrast-transparency-70: rgba(233, 218, 193, 0.7);
+
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+}

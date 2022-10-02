@@ -1,0 +1,72 @@
+.bgc-primary {
+  background-color: var(--primary);
+}
+
+.bgc-primary-contrast {
+  background-color: var(--primary-contrast);
+}
+
+.bgc-secondary {
+  background-color: var(--secondary);
+}
+
+.bgc-secondary-contrast {
+  background-color: var(--secondary-contrast);
+}
+
+.bgc-light {
+  background-color: var(--light);
+}
+
+.bgc-dark {
+  background-color: var(--dark);
+}
+
+.c-primary {
+  color: var(--primary) !important;
+}
+
+.c-primary-contrast {
+  color: var(--primary-contrast) !important;
+}
+
+.c-secondary {
+  color: var(--secondary) !important;
+}
+
+.c-secondary-contrast {
+  color: var(--secondary-contrast) !important;
+}
+
+.c-light {
+  color: var(--light);
+}
+
+.c-dark {
+  color: var(--dark);
+}
+
+
+
+@mixin abg-variant($parent, $color, $ignore-warning: false) {
+  #{$parent} {
+    background-color: $color !important;
+  }
+
+  a#{$parent},
+  button#{$parent} {
+    @include hover-focus() {
+      background-color: darken($color, 10%) !important;
+    }
+  }
+
+  @include deprecate("The `bg-variant` mixin", "v4.4.0", "v5", $ignore-warning);
+}
+
+@mixin abg-gradient-variant($parent, $color, $ignore-warning: false) {
+  #{$parent} {
+    background: $color linear-gradient(180deg, mix($body-bg, $color, 15%), $color) repeat-x !important;
+  }
+
+  @include deprecate("The `bg-gradient-variant` mixin", "v4.5.0", "v5", $ignore-warning);
+}

@@ -1,0 +1,37 @@
+$breakpoints: (xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px);
+
+$media-breakpoints: ('sm': (max-width: 576px),
+  'md': (max-width: 768px),
+  'lg': (max-width: 992px),
+  'xl': (max-width: 1200px),
+  'xxl': (max-width: 1400px),
+);
+
+/// Gestor Responsive
+/// @access public
+/// @param {String} $breakpoint - Punto de ruptura
+/// @requires $breakpoints
+
+@mixin media($breakpoint) {
+  $raw-query: map-get($media-breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(type-of($raw-query)=='string',
+        unquote($raw-query),
+        inspect($raw-query));
+
+    @media #{$query} {
+      @content;
+    }
+  }
+
+  @else {
+    @error 'No se ha encontrado un valor para `#{$breakpoint}`. '
+    +'Por favor, asegúrate que está definido en el mapa `$breakpoints`.';
+  }
+}

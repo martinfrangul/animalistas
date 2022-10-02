@@ -1,0 +1,48 @@
+@use '../utils/helpers';
+@use './typography';
+
+@mixin btn($bgcolor, $color) {
+  @extend %shadow;
+  @extend .h4-bold;
+  border-radius: 10px;
+  border: none;
+  width: -webkit-fill-available;
+  height: 48px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: $bgcolor;
+  color: $color;
+
+  &:hover {
+    background-color: $bgcolor;
+    color: $color;
+    opacity: 0.9;
+  }
+}
+
+.btn-primary {
+  @include btn(var(--primary), var(--dark));
+}
+
+.btn-primary-contrast {
+  @include btn(var(--primary-contrast), var(--light));
+}
+
+.btn-secondary {
+  @include btn(var(--secondary), var(--dark));
+}
+
+.btn-secondary-contrast {
+  @include btn(var(--secondary-contrast), var(--light));
+}
+
+.btn-tertiary {
+  @include btn(var(--tertiary), var(--tertiary-contrast));
+}
+
+.btn-tertiary-contrast {
+  @include btn(var(--tertiary-contrast), var(--tertiary));
+}

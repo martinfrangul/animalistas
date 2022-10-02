@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Urbanist:wght@100;200;400;700&display=swap');
+
+body {
+  font-family: 'Urbanist', sans-serif;
+  color: var(--dark);
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none
+  }
+}
+
+.bold {
+  font-weight: 700 !important;
+}
+
+.light {
+  font-weight: 200 !important;
+}
+
+.thin {
+  font-weight: 100 !important;
+}
+
+
+%capitalize {
+  text-transform: capitalize;
+}
+
+
+.h1 {
+  font-size: 48px;
+  line-height: 61px;
+  font-weight: 500;
+}
+
+.h1-light {
+  @extend .h1;
+  @extend .light;
+}
+
+.h1-thin {
+  @extend .h1;
+  @extend .thin;
+}
+
+.h1-bold {
+  @extend .h1;
+  @extend .bold;
+}
+
+.h1-stencil {
+  @extend .h1;
+  font-family: 'Allerta Stencil', sans-serif;
+}
+
+.h2 {
+  font-size: 34px;
+  line-height: 43px;
+  font-weight: 500;
+}
+
+.h2-stencil {
+  @extend .h2;
+  font-family: 'Allerta Stencil', sans-serif;
+}
+
+.h2-light {
+  @extend .h2;
+  @extend .light;
+}
+
+.h2-thin {
+  @extend .h2;
+  @extend .thin;
+}
+
+.h2-bold {
+  @extend .h2;
+  @extend .bold;
+}
+
+.h3 {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 500;
+}
+
+.h3-stencil {
+  @extend .h3;
+  font-family: 'Allerta Stencil', sans-serif;
+}
+
+.h3-light {
+  @extend .h3;
+  @extend .light;
+}
+
+.h3-thin {
+  @extend .h3;
+  @extend .thin;
+}
+
+.h3-bold {
+  @extend .h3;
+  @extend .bold;
+}
+
+.h4 {
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: 500;
+}
+
+.h4-light {
+  @extend .h4;
+  @extend .light;
+}
+
+.h4-thin {
+  @extend .h4;
+  @extend .thin;
+}
+
+.h4-bold {
+  @extend .h4;
+  @extend .bold;
+}
+
+
+.h5 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.h5-light {
+  @extend .h5;
+  @extend .light;
+}
+
+.h5-thin {
+  @extend .h5;
+  @extend .thin;
+}
+
+.h5-bold {
+  @extend .h5;
+  @extend .bold;
+}
+
+.h6 {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.h6-light {
+  @extend .h6;
+  @extend .light;
+}
+
+.h6-thin {
+  @extend .h6;
+  @extend .thin;
+}
+
+.h6-bold {
+  @extend .h6;
+  @extend .bold;
+}
+
+.underline {
+  text-underline-position: under;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  -webkit-text-decoration-skip-ink: none;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: 1px;
+}
+
+.link-h5 {
+  @extend .h5;
+  color: var(--primary-contrast);
+  cursor: pointer;
+
+  &:hover {
+    @extend .underline;
+    color: var(--primary-contrast-transparency-90) !important;
+  }
+}
